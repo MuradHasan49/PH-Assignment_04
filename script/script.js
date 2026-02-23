@@ -205,6 +205,7 @@ function handleJobActions(event, source) {
 }
 
 // All EventListener
+
 jobContainer.addEventListener('click', function (event) {
     handleJobActions(event, 'main');
 });
