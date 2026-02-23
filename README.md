@@ -1,4 +1,4 @@
-# All questions answered
+# All Questions Answered
 
 1.Ans : getElementById Selects a single element by its unique id attribute value, and getElementsByClassName Selects all elements that have a specified class name or names. The class name is passed as a string without the . prefix, querySelector returns the first element that matches a specified CSS selector and querySelectorAll returns all elements that match the specified CSS selectors.
 
