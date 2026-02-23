@@ -57,7 +57,7 @@ function extractJobData(cardElement) {
     };
 }
 
-
+// Event delegation
 document.getElementById('perent').addEventListener("click", function (event) {
     const clickedBtn = event.target.closest('button');
     if (!clickedBtn) return;
