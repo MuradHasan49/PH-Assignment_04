@@ -19,7 +19,7 @@ const noJobSection = document.getElementById('noJobSection');
 let interviewList = [];
 let rejectedList = [];
 
-
+// status chack function 
 function updateJobCounts() {
     totalDisplay.innerText = jobContainer.children.length;
     interviewDisplay.innerText = interviewList.length;
