@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH-Assignment-4</title>
+
+    <!-- DaisyUI + Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="w-11/12 mx-auto py-6">
+            <h1 class="text-3xl font-bold text-gray-800 text-center lg:text-start">Job Application Tracker</h1>
+        </div>
+    </header>
+
+
+    <!-- Status Section -->
+    <section class="w-11/12 mx-auto mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center lg:text-start">
+
+            <div class="card bg-white shadow-sm border">
+                <div class="card-body">
+                    <h3 class="text-sm text-gray-500">Total Applications</h3>
+                    <p id="total" class="text-3xl font-semibold text-gray-800">0</p>
+                </div>
+            </div>
+
+            <div class="card bg-white shadow-sm border">
+                <div class="card-body">
+                    <h3 class="text-sm text-gray-500">Interview</h3>
+                    <p id="interview" class="text-3xl font-semibold text-green-600">0</p>
+                </div>
+            </div>
+
+            <div class="card bg-white shadow-sm border">
+                <div class="card-body">
+                    <h3 class="text-sm text-gray-500">Rejected</h3>
+                    <p id="rejected" class="text-3xl font-semibold text-red-600">0</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Job Cards Section -->
+    <section class="w-11/12 mx-auto mt-10 mb-10">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-semibold text-gray-800">Available Jobs</h2>
+            <p id="total2" class="text-gray-500">8 jobs</p>
+        </div>
+
+        <!-- Toggle button -->
+        <div id="perent" class="py-5 text-center lg:text-start">
+            <button id="toggle-all" class="btn text-white bg-[#3B82F6] px-10 button">All</button>
+            <button id="toggle-interview" class="btn button">Interview</button>
+            <button id="toggle-rejected" class="btn button">Rejected</button>
+        </div>
+        <!-- no job available -->
+        <section id="noJobSection" class="hidden">
+            <div class="bg-white shadow-md border rounded-md flex flex-col justify-center items-center space-y-3 py-8">
+                <img src="./img/jobs.png" alt="">
+                <h2 class="font-bold">No jobs available</h2>
+                <p class="text-gray-400">Check back soon for new job opportunities</p>
+            </div>
+        </section>
+        <!-- rejected section -->
+        <section id="rejectedSection" class="space-y-2 hidden">
+
+        </section>
+
+        <!-- interview section -->
+        <section id="interviewSection" class="space-y-2 hidden">
+
+        </section>
+
+        <!-- Job Card -->
+        <div id="jobContainer" class="space-y-2 ">
+
+            <div class="card bg-white shadow-md border">
+                <div class="card-body">
+
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="card-title text-xl">Mobile First Corp</h2>
+                            <p class="cardDis text-gray-600">React Native Developer</p>
+                        </div>
+                        <div class="grid col-span-1 gap-2">
+                            <span class="badge  badge-outline font-semibold py-4">Not Applied</span>
+
+                            <span class="btn btn-outline btn-error deletebtn"><i
+                                    class="fa-solid fa-trash-can"></i>Delete</span>
+                        </div>
+                    </div>
+
+                    <p class="priceP text-sm text-gray-500 mt-2">
+                        Remote • Full-time • $130,000 - $175,000
+                    </p>
+
+                    <p class="jobDis mt-4 text-gray-700">
+                        Build cross-platform mobile applications using React Native.
+                        Work on products used by millions of users worldwide.
+                    </p>
+
+                    <div class="card-actions mt-6">
+                        <button id="interviewBtn" class="interviewBtn btn btn-outline btn-success">INTERVIEW</button>
+                        <button id="rejectBtn" class="rejectBtn btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- card 2 -->
+            <div class="card bg-white shadow-md border">
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="card-title text-xl">DataStream Inc.</h2>
+                            <p class="cardDis text-gray-600">Senior Backend Engineer</p>
+                        </div>
+                        <div class="grid col-span-1 gap-2">
+                            <span class="badge badge-outline py-4 font-semibold">Not Applied</span>
+                            <span class="btn btn-outline btn-error deletebtn"><i
+                                    class="fa-solid fa-trash-can"></i>Delete</span>
+                        </div>
+                    </div>
+                    <p class="priceP text-sm text-gray-500 mt-2">
+                        Hybrid • Full-time • $145,000 - $190,000
+                    </p>
+                    <p class="jobDis mt-4 text-gray-700">
+                        Scale our real-time data processing pipeline using Node.js and PostgreSQL.
+                        Experience with distributed systems and Redis is a major plus.
+                    </p>
+                    <div class="card-actions mt-6">
+                        <button id="interviewBtn" class="interviewBtn btn btn-outline btn-success">INTERVIEW</button>
+                        <button id="rejectBtn" class="rejectBtn btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- card 3 -->
+            <div class="card bg-white shadow-md border">
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="card-title text-xl">CloudScale AI</h2>
+                            <p class="cardDis text-gray-600">DevOps Engineer</p>
+                        </div>
+                        <div class="grid col-span-1 gap-2">
+                            <span class="badge badge-outline font-semibold py-4">Not Applied</span>
+                            <span class="btn btn-outline btn-error deletebtn"><i
+                                    class="fa-solid fa-trash-can"></i>Delete</span>
+                        </div>
+                    </div>
+                    <p class="priceP text-sm text-gray-500 mt-2">
+                        Remote • Full-time • $120,000 - $160,000
+                    </p>
+                    <p class="jobDis mt-4 text-gray-700">
+                        Automate cloud deployments using Terraform and Kubernetes.
+                        Maintain high availability for our global AI-driven infrastructure.
+                    </p>
+                    <div class="card-actions mt-6">
+                        <button id="interviewBtn" class="interviewBtn btn btn-outline btn-success">INTERVIEW</button>
+                        <button id="rejectBtn" class="rejectBtn btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white shadow-md border">
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="card-title text-xl">Creative Studio</h2>
+                            <p class="cardDis text-gray-600">UI/UX Designer</p>
+                        </div>
+                        <div class="grid col-span-1 gap-2">
+                            <span class="badge badge-outline font-semibold py-4">Not Applied</span>
+                            <span class="btn btn-outline btn-error deletebtn"><i
+                                    class="fa-solid fa-trash-can"></i>Delete</span>
+                        </div>
+                    </div>
+                    <p class="priceP text-sm text-gray-500 mt-2">
+                        On-site • Contract • $80,000 - $110,000
+                    </p>
+                    <p class="jobDis mt-4 text-gray-700">
+                        Design intuitive user interfaces for web and mobile platforms.
+                        Translate complex requirements into clean and functional design systems.
+                    </p>
+                    <div class="card-actions mt-6">
+                        <button id="interviewBtn" class="interviewBtn btn btn-outline btn-success">INTERVIEW</button>
+                        <button id="rejectBtn" class="rejectBtn btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white shadow-md border">
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="card-title text-xl">Cyber Shield</h2>
+                            <p class="cardDis text-gray-600">Security Analyst</p>
+                        </div>
+                        <div class="grid col-span-1 gap-2">
+                            <span class="badge badge-outline font-semibold py-4">Not Applied</span>
+                            <span class="btn btn-outline btn-error deletebtn"><i
+                                    class="fa-solid fa-trash-can"></i>Delete</span>
+                        </div>
+                    </div>
+                    <p class="priceP text-sm text-gray-500 mt-2">
+                        Hybrid • Full-time • $140,000 - $185,000
+                    </p>
+                    <p class="jobDis mt-4 text-gray-700">
+                        Monitor networks for security breaches and respond to cyber threats.
+                        Perform regular audits and implement advanced encryption protocols.
+                    </p>
+                    <div class="card-actions mt-6">
+                        <button id="interviewBtn" class="interviewBtn btn btn-outline btn-success">INTERVIEW</button>
+                        <button id="rejectBtn" class="rejectBtn btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white shadow-md border">
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="card-title text-xl">FinTech Solutions</h2>
+                            <p class="cardDis text-gray-600">Full Stack Developer</p>
+                        </div>
+                        <div class="grid col-span-1 gap-2">
+                            <span class="badge badge-outline font-semibold py-4">Not Applied</span>
+                            <span class="btn btn-outline btn-error deletebtn"><i
+                                    class="fa-solid fa-trash-can"></i>Delete</span>
+                        </div>
+                    </div>
+                    <p class="priceP text-sm text-gray-500 mt-2">
+                        Remote • Full-time • $110,000 - $150,000
+                    </p>
+                    <p class="jobDis mt-4 text-gray-700">
+                        Build secure financial tools using MERN stack and TypeScript.
+                        Optimize performance for real-time transaction processing dashboards.
+                    </p>
+                    <div class="card-actions mt-6">
+                        <button id="interviewBtn" class="interviewBtn btn btn-outline btn-success">INTERVIEW</button>
+                        <button id="rejectBtn" class="rejectBtn btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white shadow-md border">
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="card-title text-xl">GameVerse</h2>
+                            <p class="cardDis text-gray-600">Game Developer</p>
+                        </div>
+                        <div class="grid col-span-1 gap-2">
+                            <span class="badge badge-outline font-semibold py-4">Not Applied</span>
+                            <span class="btn btn-outline btn-error deletebtn"><i
+                                    class="fa-solid fa-trash-can"></i>Delete</span>
+                        </div>
+                    </div>
+                    <p class="priceP text-sm text-gray-500 mt-2">
+                        On-site • Full-time • $95,000 - $135,000
+                    </p>
+                    <p class="jobDis mt-4 text-gray-700">
+                        Create immersive 3D experiences using Unity and C#.
+                        Collaborate with artists to implement high-quality visual effects.
+                    </p>
+                    <div class="card-actions mt-6">
+                        <button id="interviewBtn" class="interviewBtn btn btn-outline btn-success">INTERVIEW</button>
+                        <button id="rejectBtn" class="rejectBtn btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-white shadow-md border">
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="card-title text-xl">NextGen Health</h2>
+                            <p class="cardDis text-gray-600">ML Engineer</p>
+                        </div>
+                        <div class="grid col-span-1 gap-2">
+                            <span class="badge badge-outline font-semibold py-4">Not Applied</span>
+                            <span class="btn btn-outline btn-error deletebtn"><i
+                                    class="fa-solid fa-trash-can"></i>Delete</span>
+                        </div>
+                    </div>
+                    <p class="priceP text-sm text-gray-500 mt-2">
+                        Remote • Full-time • $150,000 - $200,000
+                    </p>
+                    <p class="jobDis mt-4 text-gray-700">
+                        Develop predictive models for medical diagnosis using Python.
+                        Scale machine learning pipelines on big healthcare datasets.
+                    </p>
+                    <div class="card-actions mt-6">
+                        <button id="interviewBtn" class="interviewBtn btn btn-outline btn-success">INTERVIEW</button>
+                        <button id="rejectBtn" class="rejectBtn btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script/script.js"></script>
+</body>
+
+</html>
