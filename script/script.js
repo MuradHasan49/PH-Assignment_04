@@ -47,6 +47,7 @@ function updateNoJobStatus() {
     }
 }
 
+// get ths job data
 function extractJobData(cardElement) {
     return {
         cardTtitle: cardElement.querySelector(".card-title").innerText,
