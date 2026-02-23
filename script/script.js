@@ -26,7 +26,7 @@ function updateJobCounts() {
     rejectedDisplay.innerText = rejectedList.length;
 }
 
-
+// controll NoJobSection status
 function updateNoJobStatus() {
     const isInterviewActive = !interviewSection.classList.contains('hidden');
     const isRejectedActive = !rejectedSection.classList.contains('hidden');
