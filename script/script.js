@@ -92,7 +92,7 @@ document.getElementById('perent').addEventListener("click", function (event) {
     updateNoJobStatus();
 });
 
-
+// show the card info in dynamic way
 function renderInterviewSection() {
     interviewSection.classList.remove('hidden');
     interviewSection.innerHTML = "";
